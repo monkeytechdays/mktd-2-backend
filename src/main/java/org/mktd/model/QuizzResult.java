@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class QuizzResult implements Comparable<QuizzResult> {
 
-    public final Comparator<QuizzResult> COMPARATOR = Comparator.comparingInt(QuizzResult::getScore)
+    private final Comparator<QuizzResult> COMPARATOR = Comparator.comparingInt(QuizzResult::getScore)
             .thenComparing(Comparator.comparingLong((QuizzResult result) -> result.getDuration().toMillis()));
 
     private final String userName;

@@ -1,5 +1,6 @@
 package org.mktd.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,6 +10,10 @@ public class QuizzResponses {
     public QuizzResponses(List<String> responses) {
         super();
         this.responses = responses;
+    }
+
+    public QuizzResponses() {
+        this(new ArrayList<>());
     }
 
     @Override

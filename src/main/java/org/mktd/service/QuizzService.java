@@ -68,7 +68,7 @@ public class QuizzService {
     private PairQuestionAnswer createQuestion() {
         shuffle(monkeys);
         Monkey monkey = monkeys.iterator().next();
-        List<Monkey> list = QuizzService.monkeys.subList(0, QuizzService.monkeys.size() - 1);
+        List<Monkey> list = QuizzService.monkeys.subList(1, QuizzService.monkeys.size() - 1);
 
         List<String> suggestions = Stream.concat(list.stream().limit(3), Stream.of(monkey))
                 .map(Monkey::getRace)
