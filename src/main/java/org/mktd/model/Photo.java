@@ -3,18 +3,18 @@ package org.mktd.model;
 import java.util.Objects;
 
 public class Photo {
-    private final String dataUri;
+    private final String url;
     private final String attribution;
 
-    public Photo(String dataUri, String attribution) {
+    public Photo(String url, String attribution) {
         super();
-        this.dataUri = dataUri;
+        this.url = url;
         this.attribution = attribution;
     }
 
     @Override
     public String toString() {
-        return String.format("Photo{dataUri='%s', attribution='%s'}", dataUri, attribution);
+        return String.format("Photo{url='%s', attribution='%s'}", url, attribution);
     }
 
     @Override
@@ -22,17 +22,17 @@ public class Photo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Photo photo = (Photo) o;
-        return Objects.equals(dataUri, photo.dataUri) &&
+        return Objects.equals(url, photo.url) &&
                 Objects.equals(attribution, photo.attribution);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dataUri, attribution);
+        return Objects.hash(url, attribution);
     }
 
-    public String getDataUri() {
-        return dataUri;
+    public String getUrl() {
+        return url;
     }
 
     public String getAttribution() {

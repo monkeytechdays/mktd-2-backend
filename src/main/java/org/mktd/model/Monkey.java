@@ -12,6 +12,10 @@ public class Monkey {
         this.photo = photo;
     }
 
+    public Monkey(String race, String url, String attribution) {
+        this(race, new Photo(url, attribution));
+    }
+
     @Override
     public String toString() {
         return String.format("Monkey{race='%s', photo=%s}", race, photo);
