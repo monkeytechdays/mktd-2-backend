@@ -1,5 +1,7 @@
 package org.mktd;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.jooby.Jooby;
 import org.jooby.json.Jackson;
 import org.mktd.model.QuizzResponses;
@@ -16,7 +18,10 @@ public class App extends Jooby {
         QuizzService quizzService = new QuizzService();
         LeaderBoardService leaderBoardService = new LeaderBoardService();
 
-        use(new Jackson());
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        use(new Jackson(mapper));
+
         get("/api/quizz", request -> {
             String userName = request.param("userName").value();
             return quizzService.createQuizz(userName);
